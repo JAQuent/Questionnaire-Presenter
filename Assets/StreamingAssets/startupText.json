@@ -1,0 +1,13 @@
+{
+    "chromeBar": "Questionnaire Presenter (version 0.1)",
+    "instructionsPanelContent1": "Welcome to the xth part of this study",
+    "instructionsPanelContent2": "During this part of the experiment, we ask you to fill out a couple of questions concerning your navigational skills among other things. Please note that there are no right or wrong answers here as these questions are not part of a performance test, so please simply answer them as honestly as possible. \n\nPlease make sure to set the 'local save directory path' to the folder labelled 'your_data' as explained in the instructions.",
+    "expSettingsprofile": "Experiment settings profile",
+    "localPathElement": "Local data save directory",
+    "localPathElement_placeHolder": "Press browse button to select...",
+    "participantID": "Participant ID",
+    "participantID_placeholder": "Enter text...",
+    "sessionNumber": "Session number",
+    "termsAndConditions": "Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>",
+    "beginButton": "Begin session"
+}
