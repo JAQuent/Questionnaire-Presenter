@@ -17,6 +17,9 @@ public class QP_controller : MonoBehaviour{
     // EndScreen
     public GameObject endScreen;
 
+    // HTTPpost script
+    public UXF.HTTPPost HTTPPostScript;
+
 	// Public vars
     [Header("Question types")]
     public GameObject message;
@@ -49,14 +52,14 @@ public class QP_controller : MonoBehaviour{
     private float endCountDown = 60; // End countdown if zero, application closes. 
     private Text endScreenText; // Text component of the end screen
     private string endMessage; // String for the end message that is used.
-
+    private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
 
     // Every update check if esacpe is pressed
     void Update(){
     	// Stop Experiment
         if(Input.GetKey(KeyCode.Escape)){
             // Log entry
-            Debug.Log("Session end time " + System.DateTime.Now);
+            Debug.Log("Session manually ended " + System.DateTime.Now);
 
             // Close application
             TheEnd();
@@ -82,8 +85,29 @@ public class QP_controller : MonoBehaviour{
         endCountDown = session.settings.GetFloat("endCountDown");
         endMessage = session.settings.GetString("endMessage");
 
+        // Check if HTTPPost needs to be set.
+        useHTTPPost = session.settings.GetBool("useHTTPPost");
+        if(useHTTPPost){
+            configureHTTPPost();
+        }
+
     	// Begin first trial
         session.BeginNextTrial(); 
+    }
+
+    /// <summary>
+    /// Method to configure the HTTPPost script. Needs public UXF.HTTPPost HTTPPostScript;
+    /// </summary>
+    public void configureHTTPPost(){
+        string url = session.settings.GetString("url");
+        string username = session.settings.GetString("username");
+        string password = session.settings.GetString("password");
+
+        // Set the variables
+        HTTPPostScript.url = url;
+        HTTPPostScript.username = username;
+        HTTPPostScript.password = password;
+        HTTPPostScript.active = true;
     }
 
     /// <summary>
@@ -485,19 +509,31 @@ public class QP_controller : MonoBehaviour{
     /// Function to end application. This needs to be attached to the On Session End Event of the UXF Rig.
     /// </summary>
     public void TheEnd(){
-        // Start the fixation coroutine but only if there is still a session
-        if(session.hasInitialised){
+        // If useHTTPPost not used than quit immediately
+        if(!useHTTPPost){
+            Debug.Log("Application closed now.");
+            Application.Quit();
+        }
+
+        // End session/trial if necessary
+        if(session.InTrial){
+            // End the trial
+            session.EndCurrentTrial();  
+        }
+        if(!session.isEnding){
+            // End the session
             session.End();
         }
 
-        // Set end screen active
+        // Set end screen active but current canvas inactive
         endScreen.SetActive(true);
+        currentCanvas.SetActive(false);
 
         // Start end countdown
         startEndCountDown = true;
 
         // Get text
-        endScreenText = endScreen.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
+        endScreenText = endScreen.transform.Find("Text").gameObject.GetComponent<Text>();
     }
 
 
