@@ -1,0 +1,2 @@
+trial_num	block_num	trialType	question	options	placeholderText	minimumDuration
+1	1	message	"This is message."	NA	NA	2
