@@ -38,8 +38,6 @@ Optional but relevant for UXF (see UXF's website for more details), which will d
 
 All columns are included in the result file that is saved, which also includes any other columns that are provided but not needed to construct the questionnaire. For instance, one might want to include question IDs for simpler analysis. In the following, I quickly introduce the different question types, which are provide as the `trialType`.
 
-
-
 # Question types
 ## Message
 - `trialType` = message
@@ -102,9 +100,24 @@ All columns are included in the result file that is saved, which also includes a
 | 1         | 1         | message   | Welcome to this questionnaire | NA                      | 3               |
 | 2         | 2         | slider    | Do you like this program?     | yes\|no                 | 3               |
 | 3         | 2         | textLong  | Tell me your life story.      | Type life story here... | 3               |
-| 4         | 3         | dropdown  | Which platform did you use?   | Windows\|mac            | 3               |
+| 4         | 3         | dropdown  | Which platform did you use?   | Windows\|Mac            | 3               |
 
-# Customisation of UXF Startup panel using a .json file 
+# Further input through session .json file
+The most important input comes in form of the `trial_specification_name`, which specifies the .txt file that is used to construct the questionnaire. The other input are really only relevant if HTTPPost (see [here for an explanation](https://github.com/immersivecognition/unity-experiment-framework/wiki/HTTP-POST-setup)) is used to collect data remotely. If you want to do that, you can specify the relevant server by setting url, username & password. If the application is closed to early, it is possible that the data is not completely send to the server which can lead to data loss. Therefore, if HTTPPost is used, a end screen counting down from `endCountDown` along with the message specified in `endMessage` is presented, which will wait with closign the application until the time is over. It is probably advisable to test how much time you need so that your data is actually saved. 
+
+```json
+{
+  "trial_specification_name": "QP_input.txt",
+  "endCountDown" : 60,
+  "endMessage": "Thank you for completing the task.\n\nPlease wait briefly before you close the application.\n\nSeconds remaining: ",
+  "useHTTPPost": false,
+  "url": "http://127.0.0.1:5000/form",
+  "username": "susan",
+  "password": "hello"
+}
+```
+
+# Customisation of the UXF Startup panel using a .json file 
 The UXF Startup panel can be customised by changing values in this the .json file called `startupText.json` that is also found the `StreamingAssets` folder and looks like this:
 
 ```json
@@ -126,12 +139,10 @@ The UXF Startup panel can be customised by changing values in this the .json fil
 All that needs to be done is to edit the strings in this file to display your information instead of the standard text. 
 
 # Data saved
-Note due to UXF “,” in responses are converted into “_”.
+_Explanation coming soon_.
+
+Note due to UXF internal workins “,” in responses are converted into “\_”.
 
 # Ideas for the future
 - Participant check list
 - Change background on trials? To indicate different questionnaires. 
-- Add possibility to require input to continue. 
--  Default options in radio
-- Use json to decide which questionnaire
-
