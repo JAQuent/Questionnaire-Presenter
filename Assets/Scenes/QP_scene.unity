@@ -3413,6 +3413,10 @@ PrefabInstance:
       value: Please tick if you understand the instructions and agree for your data
         to be collected and used for research purposes.<color=red>*</color>
       objectReference: {fileID: 0}
+    - target: {fileID: 653059108743847710, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
+      propertyPath: settingsSearchPattern
+      value: QP_*.json
+      objectReference: {fileID: 0}
     - target: {fileID: 709011215427487162, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16281,7 +16285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1579726221
 CanvasRenderer:
   m_ObjectHideFlags: 0
