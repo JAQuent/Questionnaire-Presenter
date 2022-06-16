@@ -190,6 +190,9 @@ public class QP_controller : MonoBehaviour{
 	    		// Set inactive
 	    		toogles[i].isOn = false;
     		}
+
+            // Inactive the toggle group
+            current_toggleGroup_gameObject.SetActive(false);
     		
     		// save to results
     		session.CurrentTrial.result["value"] = toogleIndex;
