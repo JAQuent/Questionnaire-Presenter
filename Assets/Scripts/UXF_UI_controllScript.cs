@@ -37,6 +37,7 @@ public class UXF_UI_controllScript : MonoBehaviour{
 	private Text participantID_placeholder;
 	private Text sessionNumber;
 	private Text beginButton;
+    private Text termsAndConditions;
 	private JSONDataClass JSONData;
 
     // Start is called before the first frame update
@@ -74,8 +75,11 @@ public class UXF_UI_controllScript : MonoBehaviour{
     	sessionNumber.text = JSONData.sessionNumber; //"Session number";
 
     	// This has to be set-up in the UIController script because it would be overwritten otherwise.
-    	var termsAndConditions = GameObject.Find("[UXF_UI]").GetComponent<UXF.UI.UIController>();
-    	termsAndConditions.termsAndConditions = JSONData.termsAndConditions; //"Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>";
+    	var termsAndConditionsVar = GameObject.Find("[UXF_UI]").GetComponent<UXF.UI.UIController>();
+    	termsAndConditionsVar.termsAndConditions = JSONData.termsAndConditions; //"Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>";
+        termsAndConditions = GameObject.Find("Terms And Conditions Text").GetComponent<UnityEngine.UI.Text>();
+        termsAndConditions.text = JSONData.termsAndConditions; //"Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>";
+
 
     	beginButton = GameObject.Find("Begin Button/Text").GetComponent<UnityEngine.UI.Text>();
     	beginButton.text = JSONData.beginButton; //"Begin session";
