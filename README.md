@@ -69,7 +69,7 @@ All columns are included in the result file that is saved, which also includes a
 - `options` =  Place holder text. For example: "Enter your text here..."
 - `minimumDuration` = Minimum duration in seconds you want your participants to spend on this item before they can continue. Default is always zero seconds. 
 
-## NumberInterger
+## NumberInteger
 - `trialType` = numberInteger
 - `question` = string included your message. `\n` Can be used a line break character. 
 - `options` =  Place holder text. For example: "Enter the number here..."
@@ -103,7 +103,7 @@ All columns are included in the result file that is saved, which also includes a
 | 4         | 3         | dropdown  | Which platform did you use?   | Windows\|Mac            | 3               |
 
 # Further input through session .json file
-The most important input comes in form of the `trial_specification_name`, which specifies the .txt file that is used to construct the questionnaire. The other input are really only relevant if HTTPPost (see [here for an explanation](https://github.com/immersivecognition/unity-experiment-framework/wiki/HTTP-POST-setup)) is used to collect data remotely. If you want to do that, you can specify the relevant server by setting url, username & password. If the application is closed to early, it is possible that the data is not completely send to the server which can lead to data loss. Therefore, if HTTPPost is used, a end screen counting down from `endCountDown` along with the message specified in `endMessage` is presented, which will wait with closign the application until the time is over. It is probably advisable to test how much time you need so that your data is actually saved. 
+The most important input comes in form of the `trial_specification_name`, which specifies the .txt file that is used to construct the questionnaire. The other input are really only relevant if HTTPPost (see [here for an explanation](https://github.com/immersivecognition/unity-experiment-framework/wiki/HTTP-POST-setup)) is used to collect data remotely. If you want to do that, you can specify the relevant server by setting url, username & password. If the application is closed to early, it is possible that the data is not completely send to the server which can lead to data loss. Therefore, if HTTPPost is used, a end screen counting down from `endCountDown` along with the message specified in `endMessage` is presented, which will wait with closing the application until the time is over. It is probably advisable to test how much time you need so that your data is actually saved. Note the name of this file must start with `QP_` in order to be recognised by UXF.
 
 ```json
 {
@@ -141,8 +141,9 @@ All that needs to be done is to edit the strings in this file to display your in
 # Data saved
 _Explanation coming soon_.
 
-Note due to UXF internal workins “,” in responses are converted into “\_”.
+Note due to UXF internal workings “,” in responses & input are converted into “\_”.
 
 # Ideas for the future
 - Participant check list
 - Change background on trials? To indicate different questionnaires. 
+- Currently, any extra columns are not copied to the data so that during analysis supplementary information has to be added. Even though it would be a useful feature because one could question IDs and many other things, the issue is the fact that QP allows "," to be used in the strings for the questions etc. interferes with the `trial_results.csv`. For now, I therefore simply disabled this function and suggest to add this information at a later stage. 

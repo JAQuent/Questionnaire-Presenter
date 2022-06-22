@@ -3246,7 +3246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: customHeaders.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: trackedObjects.Array.size
@@ -3254,6 +3254,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: customHeaders.Array.data[0]
+      value: trialType
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
+      propertyPath: customHeaders.Array.data[1]
+      value: question
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
+      propertyPath: customHeaders.Array.data[2]
+      value: options
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
+      propertyPath: customHeaders.Array.data[3]
+      value: minimumDuration
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
+      propertyPath: customHeaders.Array.data[4]
       value: value
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
@@ -3307,7 +3323,7 @@ PrefabInstance:
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1676073999}
+      objectReference: {fileID: 1676074001}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3366,7 +3382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UXF.TSVExperimentBuilder, Assembly-CSharp
+      value: UXF.ExperimentBuilder, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionBegin.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -17261,8 +17277,8 @@ GameObject:
   - component: {fileID: 1676073996}
   - component: {fileID: 1676073995}
   - component: {fileID: 1676073998}
-  - component: {fileID: 1676073999}
   - component: {fileID: 1676074000}
+  - component: {fileID: 1676074001}
   m_Layer: 0
   m_Name: controller
   m_TagString: Untagged
@@ -17324,20 +17340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: controller
   updateType: 0
---- !u!114 &1676073999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676073994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fc9d62eba620f40b3bd771f9a635f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tsvFileKey: trial_specification_name
-  copyToResults: 1
 --- !u!114 &1676074000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17351,6 +17353,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileNameForStartUpText: startupText.json
+--- !u!114 &1676074001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676073994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c497dfe38f11445bc655115fd77b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileKey: trial_specification_name
+  separator: \t
+  copyToResults: 0
 --- !u!1 &1681209202
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,0 @@
-{
-    "trial_specification_name": "questionnaire_chinese.txt",
-    "endCountDown" : 60,
- 	"endMessage": "Thank you for completing the task.\n\nPlease wait briefly before you close the application.\n\nSeconds remaining: ",
- 	"useHTTPPost": false,
- 	"url": "http://bla/form",
- 	"username": "bla",
- 	"password": "bla"
-}

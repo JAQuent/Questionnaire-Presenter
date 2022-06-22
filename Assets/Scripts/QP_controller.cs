@@ -155,6 +155,12 @@ public class QP_controller : MonoBehaviour{
     	// Log entry
     	Debug.Log("Confirm button clicked.");
 
+    	// Add input variable to the results
+    	session.CurrentTrial.result["trialType"] = trial.settings.GetString("trialType");
+    	session.CurrentTrial.result["question"] = trial.settings.GetString("question").Replace(",", "_"); // Replace so it can be saved as .csv
+    	session.CurrentTrial.result["options"] = trial.settings.GetString("options").Replace(",", "_"); // Replace so it can be saved as .csv
+    	session.CurrentTrial.result["minimumDuration"] = trial.settings.GetFloat("minimumDuration");
+
     	////////////////////////////////////////////////////
     	// Save data according the trialType
 		if(trialType == "slider"){

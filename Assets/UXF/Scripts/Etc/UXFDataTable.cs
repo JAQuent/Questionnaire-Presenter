@@ -74,25 +74,25 @@ namespace UXF
         }
 
         /// <summary>
-        /// Build a table from lines of TSV text.
+        /// Build a table from lines of a text file.
         /// </summary>
-        /// <param name="tsvLines"></param>
+        /// <param name="lines"></param>
         /// <returns></returns>
-        public static UXFDataTable FromTSV(string[] tsvLines)
+        public static UXFDataTable FromLINES(string[] lines, char separator)
         {
-            string[] headers = tsvLines[0].Split('\t');
-            var table = new UXFDataTable(tsvLines.Length - 1, headers);
+            string[] headers = lines[0].Split(separator);
+            var table = new UXFDataTable(lines.Length - 1, headers);
 
             // traverse down rows
-            for (int i = 1; i < tsvLines.Length; i++)
+            for (int i = 1; i < lines.Length; i++)
             {
-                string[] values = tsvLines[i].Split('\t');
+                string[] values = lines[i].Split(separator);
 
                 // if last line, just 1 item in the row, and it is blank, then ignore it
-                if (i == tsvLines.Length - 1 && values.Length == 1 && values[0].Trim() == string.Empty ) break;
+                if (i == lines.Length - 1 && values.Length == 1 && values[0].Trim() == string.Empty ) break;
 
                 // check if number of columns is correct
-                if (values.Length != headers.Length) throw new Exception($"TSV line {i} has {values.Length} columns, but expected {headers.Length}");
+                if (values.Length != headers.Length) throw new Exception($"Line {i} has {values.Length} columns, but expected {headers.Length}");
 
                 // build across the row
                 var row = new UXFDataRow();
