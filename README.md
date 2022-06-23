@@ -108,6 +108,7 @@ The most important input comes in form of the `trial_specification_name`, which 
 ```json
 {
   "trial_specification_name": "QP_input.txt",
+  "targetFrameRate": 60,
   "endCountDown" : 60,
   "endMessage": "Thank you for completing the task.\n\nPlease wait briefly before you close the application.\n\nSeconds remaining: ",
   "useHTTPPost": false,

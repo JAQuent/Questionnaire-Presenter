@@ -97,6 +97,10 @@ public class QP_controller : MonoBehaviour{
         // Which platform is used?
         whichPlatform();
 
+        // Set frame rate to maximum
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = session.settings.GetInt("targetFrameRate");
+
     	// Begin first trial
         session.BeginNextTrial(); 
     }
