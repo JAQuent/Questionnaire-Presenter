@@ -186,7 +186,8 @@ public class QP_controller : MonoBehaviour{
        		//get the string value of the selected index
 	        session.CurrentTrial.result["value"] = menuOptions[menuIndex].text;
 		} else if(trialType == "textShort" | trialType == "textLong" | trialType == "numberInteger"  | trialType == "numberDecimal" ){
-			session.CurrentTrial.result["value"] = currentCanvas.transform.Find("Input").gameObject.GetComponent<UnityEngine.UI.InputField>().text;
+            string response = currentCanvas.transform.Find("Input").gameObject.GetComponent<UnityEngine.UI.InputField>().text;
+			session.CurrentTrial.result["value"] = response.Replace("\n", "\\n"); // Replace line breaks to avoid messing with the .csv
 		} else if(trialType == "radio"){
 			// Get the current toggle group
 			ToggleGroup current_toogleGroup = current_toggleGroup_gameObject.GetComponent<ToggleGroup>();
