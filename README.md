@@ -143,6 +143,10 @@ _Explanation coming soon_.
 
 Note due to UXF internal workings “,” in responses & input are converted into “\_”.
 
+## Log 
+
+In the log you find the time stamps for every button press and every time the minimum duration is over. Furthermore, it provides information but which platform is used (Windows/Mac) and at which system time the experiment started. 
+
 # Ideas for the future
 - Participant check list
 - Change background on trials? To indicate different questionnaires. 

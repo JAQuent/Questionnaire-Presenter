@@ -91,6 +91,12 @@ public class QP_controller : MonoBehaviour{
             configureHTTPPost();
         }
 
+        // Print system time
+        Debug.Log("Session start time " + System.DateTime.Now);
+
+        // Which platform is used?
+        whichPlatform();
+
     	// Begin first trial
         session.BeginNextTrial(); 
     }
@@ -552,5 +558,18 @@ public class QP_controller : MonoBehaviour{
     public void startTrialTimer(){
     	// Log trime
     	trialStart = Time.time;
+    }
+
+    /// <summary>
+    /// Method to log which platform is used. # More info here https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
+    /// </summary>
+    void whichPlatform(){
+        #if UNITY_EDITOR
+            Debug.Log("Platform used is UNITY_EDITOR");
+        #elif UNITY_STANDALONE_OSX
+            Debug.Log("Platform used is UNITY_STANDALONE_OSX");
+        #elif UNITY_STANDALONE_WIN
+            Debug.Log("Platform used is UNITY_STANDALONE_WIN");
+        #endif
     }
 }
