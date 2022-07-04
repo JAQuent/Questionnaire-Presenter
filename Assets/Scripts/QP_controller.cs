@@ -53,6 +53,8 @@ public class QP_controller : MonoBehaviour{
     private Text endScreenText; // Text component of the end screen
     private string endMessage; // String for the end message that is used.
     private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
+    private string alignmentString;
+    private TextAnchor alignment;
 
     // Every update check if esacpe is pressed
     void Update(){
@@ -84,6 +86,32 @@ public class QP_controller : MonoBehaviour{
         // Get endCountDown & countdown message
         endCountDown = session.settings.GetFloat("endCountDown");
         endMessage = session.settings.GetString("endMessage");
+
+        // Get alignment
+        alignmentString = session.settings.GetString("alignment");
+        if(alignmentString == "UpperLeft"){
+            alignment = TextAnchor.UpperLeft;
+        } else if(alignmentString == "UpperCenter"){
+            alignment = TextAnchor.UpperCenter;
+        } else if(alignmentString == "UpperRight"){
+            alignment = TextAnchor.UpperRight;
+        } else if(alignmentString == "MiddleLeft"){
+            alignment = TextAnchor.MiddleLeft;
+        } else if(alignmentString == "MiddleCenter"){
+            alignment = TextAnchor.MiddleCenter;
+        } else if(alignmentString == "MiddleRight"){
+            alignment = TextAnchor.MiddleRight;
+        } else if(alignmentString == "LowerLeft"){
+            alignment = TextAnchor.LowerLeft;
+        } else if(alignmentString == "LowerCenter"){
+            alignment = TextAnchor.LowerCenter;
+        } else if(alignmentString == "LowerRight"){
+            alignment = TextAnchor.LowerRight;
+        } else {
+            Debug.Log("UNKNOWN alignment parameter. Check https://docs.unity3d.com/2019.1/Documentation/ScriptReference/TextAnchor.html.");
+            Debug.Log("As default choosen: LowerCenter");
+            alignment = TextAnchor.LowerCenter;
+        }
 
         // Check if HTTPPost needs to be set.
         useHTTPPost = session.settings.GetBool("useHTTPPost");
@@ -274,6 +302,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
     }
 
     /// <summary>
@@ -294,6 +323,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Set up the anchors
 		Text leftAnchor = currentCanvas.transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>();
@@ -317,6 +347,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get options from trial setting
 		string options = trial.settings.GetString("options");
@@ -352,6 +383,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get the placeholder (saved in options) from the trial settings
 		options = trial.settings.GetString("options");
@@ -377,6 +409,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get the placeholder (saved in options) from the trial settings
         options = trial.settings.GetString("options");
@@ -402,6 +435,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get the placeholder (saved in options) from the trial settings
         options = trial.settings.GetString("options");
@@ -427,6 +461,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get the placeholder (saved in options) from the trial settings
         options = trial.settings.GetString("options");
@@ -459,6 +494,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get options from trial setting
 		string options = trial.settings.GetString("options");
@@ -495,6 +531,7 @@ public class QP_controller : MonoBehaviour{
 		Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
         question.text = ""; // Reset in case there is no question
 		question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
 
 		// Get options from trial setting
 		string options = trial.settings.GetString("options");
