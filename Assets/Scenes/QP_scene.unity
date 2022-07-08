@@ -6235,7 +6235,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &543411528
 GameObject:
   m_ObjectHideFlags: 0
@@ -20921,7 +20921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Toggle 1
 --- !u!222 &2064637937
 CanvasRenderer:
   m_ObjectHideFlags: 0
