@@ -122,6 +122,9 @@ public class QP_controller : MonoBehaviour{
         // Print system time
         Debug.Log("Session start time " + System.DateTime.Now);
 
+        // Version of the task
+        Debug.Log("Application Version : " + Application.version);
+
         // Which platform is used?
         whichPlatform();
 
