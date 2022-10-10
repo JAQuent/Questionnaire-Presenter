@@ -87,6 +87,9 @@ public class QP_controller : MonoBehaviour{
         endCountDown = session.settings.GetFloat("endCountDown");
         endMessage = session.settings.GetString("endMessage");
 
+        // Change the label of the button
+        changeConfirmButtonLabel();
+
         // Get alignment
         alignmentString = session.settings.GetString("alignment");
         if(alignmentString == "UpperLeft"){
@@ -616,5 +619,21 @@ public class QP_controller : MonoBehaviour{
         #elif UNITY_STANDALONE_WIN
             Debug.Log("Platform used is UNITY_STANDALONE_WIN");
         #endif
+    }
+
+    /// <summary>
+    /// This sets up a checkmark trial.
+    /// </summary>
+    void changeConfirmButtonLabel(){
+        // Change the button labels
+        message.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        slider.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        dropdown.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        textShort.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        textLong.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        numberInteger.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        numberDecimal.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        radio.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        checkmark.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
     }
 }
