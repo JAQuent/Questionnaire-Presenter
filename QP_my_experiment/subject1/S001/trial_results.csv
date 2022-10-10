@@ -1,0 +1,10 @@
+experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,trialType,question,options,minimumDuration,value,controller_mouse_screen_location_0
+QP_my_experiment,subject1,1,1,1,1,10.53183,17.72592,message,This is message with a comma_ which is something you can use in the question.,NA,2,,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T001.csv
+QP_my_experiment,subject1,1,2,1,2,17.72592,23.28396,slider,Is this useful?,yes|no,2,0.104167,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T002.csv
+QP_my_experiment,subject1,1,3,1,3,23.28396,29.31527,dropdown,Select your option:,this|no this|or this?,2,no this,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T003.csv
+QP_my_experiment,subject1,1,4,1,4,29.31527,40.41155,textShort,Please type your response to this question:,Type here...,2,Here is my response!,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T004.csv
+QP_my_experiment,subject1,1,5,1,5,40.41155,58.45943,textLong,Please type your response to this question but with more space:,Type here...,2,Here\nIs \nMy \nResponse!,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T005.csv
+QP_my_experiment,subject1,1,6,1,6,58.45943,63.27694,numberInteger,Give me an integer number,Type here...,2,42,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T006.csv
+QP_my_experiment,subject1,1,7,1,7,63.27694,69.70856,numberDecimal,Give me an floating point number,Type here...,2,0.37828,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T007.csv
+QP_my_experiment,subject1,1,8,1,8,69.70856,75.54406,radio,You can only select on option:,this|no this|or this?|I don't \nlike this,2,4,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T008.csv
+QP_my_experiment,subject1,1,9,1,9,75.54406,82.25333,checkmark,Now_ you're allowed to select multiple options.,Option 1|Option 2|Option 3|Option 4|Option 5|Option 6|Option 7|Option 8|Option 9,2,False|True|False|True|False|True|False|True|False,QP_my_experiment/subject1/S001/trackers/controller_mouse_screen_T009.csv
