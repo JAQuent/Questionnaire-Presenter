@@ -4,7 +4,7 @@ authors:
 - family-names: "Quent"
   given-names: "Jörn Alexander"
   orcid: "https://orcid.org/0000-0002-1800-5219"
-title: "Questionnaire Presenter built with Unity3D"
+title: "Questionnaire Presenter - A standalone program to collect questionnaire data made with Unity3D"
 version: 1.0.0
 doi: 10.5281/zenodo.7180407 
 date-released: 2022-10-10
