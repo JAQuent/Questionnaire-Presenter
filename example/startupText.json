@@ -1,0 +1,13 @@
+{
+    "chromeBar": "Questionnaire Presenter (version 1.0)",
+    "instructionsPanelContent1": "Welcome!",
+    "instructionsPanelContent2": "Add your text\nhere.",
+    "expSettingsprofile": "Experiment settings profile",
+    "localPathElement": "Local data save directory",
+    "localPathElement_placeHolder": "Press browse button to select...",
+    "participantID": "Participant ID",
+    "participantID_placeholder": "Enter text...",
+    "sessionNumber": "Session number",
+    "termsAndConditions": "Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>",
+    "beginButton": "Begin session"
+}

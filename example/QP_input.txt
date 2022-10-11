@@ -1,0 +1,10 @@
+trial_num	block_num	trialType	question	options	minimumDuration
+1	1	message	"This is message with a comma, which is something you can use in the question."	NA	2
+2	1	slider	"Is this useful?"	yes|no	2
+3	1	dropdown	"Select your option:"	this|no this|or this?	2
+4	1	textShort	"Please type your response to this question:"	"Type here..."	2
+5	1	textLong	"Please type your response to this question but with more space:"	"Type here..."	2
+6	1	numberInteger	"Give me an integer number"	"Type here..."	2
+7	1 	numberDecimal	"Give me an floating point number"	"Type here..."	2
+9	1	radio	"You can only select on option:"	this|no this|or this?|I don't \nlike this	2
+10	1	checkmark	"Now, you're allowed to select multiple options."	Option 1|Option 2|Option 3|Option 4|Option 5|Option 6|Option 7|Option 8|Option 9	2
