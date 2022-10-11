@@ -27,7 +27,8 @@ construct the questionnaire.
 
 Illustration how the application looks like:
 
-<https://raw.githubusercontent.com/JAQuent/Questionnaire-Presenter/main/nonUnity_folder/demonstration.mp4>
+https://user-images.githubusercontent.com/17894303/194999455-ff7a3c1b-b1c9-4217-8cc3-6de378d22856.mp4
+
 
 **Contents**
 
