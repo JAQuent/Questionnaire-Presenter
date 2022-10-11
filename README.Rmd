@@ -263,8 +263,8 @@ tempTracker <- lapply(allTrackers, read.csv)
 questions_mouseTracker <- custom_rbinder_addIndexColumn(tempTracker, "trial")
 
 # Add resolution to tracker data
-questions_mouseTracker$width      <- 1920 # This information be found in the log file
-questions_mouseTracker$height     <- 1080 # This information be found in the log file
+questions_mouseTracker$width      <- 1920 
+questions_mouseTracker$height     <- 1080 
 questions_mouseTracker$norm_pix_x <- questions_mouseTracker$pix_x/questions_mouseTracker$width
 questions_mouseTracker$norm_pix_y <- questions_mouseTracker$pix_y/questions_mouseTracker$height
 
@@ -280,6 +280,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
 - A way to introduce a participant check list.
 - A way to further customise the visual appearance (e.g. change background on trials to highlight different questionnaires),  
 - Currently, any extra columns in the input .csv file are not copied to the data making adding supplementary information to the data a bit more cumbersome. Even though it would be a useful feature because one could question IDs and many other things, the issue is the fact that QP allows "," to be used in the strings for the questions etc. interferes with the `trial_results.csv`. For now, I therefore simply disabled this function and suggest to add this information at a later stage. 
+- Add resolution to the log. 
 
 Feedback or help is always welcome!
 

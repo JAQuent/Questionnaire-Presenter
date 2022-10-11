@@ -27,8 +27,7 @@ construct the questionnaire.
 
 Illustration how the application looks like:
 
-https://user-images.githubusercontent.com/17894303/194999455-ff7a3c1b-b1c9-4217-8cc3-6de378d22856.mp4
-
+<https://user-images.githubusercontent.com/17894303/194999455-ff7a3c1b-b1c9-4217-8cc3-6de378d22856.mp4>
 
 **Contents**
 
@@ -377,8 +376,8 @@ tempTracker <- lapply(allTrackers, read.csv)
 questions_mouseTracker <- custom_rbinder_addIndexColumn(tempTracker, "trial")
 
 # Add resolution to tracker data
-questions_mouseTracker$width      <- 1920 # This information be found in the log file
-questions_mouseTracker$height     <- 1080 # This information be found in the log file
+questions_mouseTracker$width      <- 1920 
+questions_mouseTracker$height     <- 1080 
 questions_mouseTracker$norm_pix_x <- questions_mouseTracker$pix_x/questions_mouseTracker$width
 questions_mouseTracker$norm_pix_y <- questions_mouseTracker$pix_y/questions_mouseTracker$height
 
@@ -405,6 +404,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
     questions etc. interferes with the `trial_results.csv`. For now, I
     therefore simply disabled this function and suggest to add this
     information at a later stage.
+-   Add resolution to the log.
 
 Feedback or help is always welcome!
 
