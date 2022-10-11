@@ -20,10 +20,14 @@ questionnaire then presents each question as a single item on a screen.
 As of now, multi-item presentations are not supported (If that is what
 you need, please check out
 [VRQuestionnaireToolkit](https://github.com/MartinFk/VRQuestionnaireToolkit)).
-Questionnaire Presenter was designed to be was lightweight and as simple
+Questionnaire Presenter was designed to be as lightweight and as simple
 as possible so I decided to restrict it to one question per page. This
-allows for a uniquely simple input system that is used to construct the
-questionnaire.
+allows for a uniquely input system that is simple can be used to
+construct the questionnaire.
+
+Illustration how the application looks like:
+
+<https://raw.githubusercontent.com/JAQuent/Questionnaire-Presenter/main/nonUnity_folder/demonstration.mp4>
 
 **Contents**
 

@@ -15,7 +15,12 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
   <img src="nonUnity_folder/logo.png" width="100" height="100" >
 </p>
 
-Questionnaire Presenter is a free-standing application built with Unity3D (version 2021.3.1f1c1) and the [Unity Experiment Framework](https://github.com/immersivecognition/unity-experiment-framework) that allows you to quickly & easily run questionnaires on a computer. The user does not need to have any programming experience or even have Unity3D install on the target machine. The questionnaire is constructed by providing a simple .txt file with tab-separated values, which can be created with spreadsheet program like Excel or LibreOffice. The questionnaire then presents each question as a single item on a screen. As of now, multi-item presentations are  not supported (If that is what you need, please check out [VRQuestionnaireToolkit](https://github.com/MartinFk/VRQuestionnaireToolkit)). Questionnaire Presenter was designed to be was lightweight and as simple as possible so I decided to restrict it to one question per page. This allows for a uniquely simple input system that is used to construct the questionnaire. 
+Questionnaire Presenter is a free-standing application built with Unity3D (version 2021.3.1f1c1) and the [Unity Experiment Framework](https://github.com/immersivecognition/unity-experiment-framework) that allows you to quickly & easily run questionnaires on a computer. The user does not need to have any programming experience or even have Unity3D install on the target machine. The questionnaire is constructed by providing a simple .txt file with tab-separated values, which can be created with spreadsheet program like Excel or LibreOffice. The questionnaire then presents each question as a single item on a screen. As of now, multi-item presentations are  not supported (If that is what you need, please check out [VRQuestionnaireToolkit](https://github.com/MartinFk/VRQuestionnaireToolkit)). Questionnaire Presenter was designed to be as lightweight and as simple as possible so I decided to restrict it to one question per page. This allows for a uniquely input system that is simple can be used to construct the questionnaire. 
+
+Illustration how the application looks like:
+
+https://raw.githubusercontent.com/JAQuent/Questionnaire-Presenter/main/nonUnity_folder/demonstration.mp4
+
 
 **Contents**
 
