@@ -39,11 +39,6 @@ questionnaire.
     -   [Radio](#Radio)
     -   [Checkmark](#Checkmark)
 -   [Example input files](#Example-input-files)
-    -   [Example QP_input.txt file](#Example-QP_input.txt-file)
-    -   [Further input through session .json
-        file](#Further-input-through%20session-.json-file)
-    -   [Customisation of the UXF Startup panel using a .json
-        file](#Customisation-of-the-UXF-Startup-panel-using-a-.json-file)
 -   [Data saved](#Data-saved)
     -   [Main results](#Main-results)
     -   [Log](#log)
@@ -287,7 +282,6 @@ library(knitr)
 
 # Load main results
 data <- read.csv("QP_my_experiment/subject1/S001/trial_results.csv", header = TRUE)
-
 
 # Display as table 
 kable(data)
