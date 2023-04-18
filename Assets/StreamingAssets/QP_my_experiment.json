@@ -8,5 +8,7 @@
  	"useHTTPPost": false,
  	"url": "http://bla/form",
  	"username": "bla",
- 	"password": "bla"
+ 	"password": "bla",
+ 	"imageFileNames": ["images/1.png", "images/2.png"],
+ 	"shuffleBlocks": [3]
 }
