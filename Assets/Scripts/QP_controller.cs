@@ -39,7 +39,6 @@ public class QP_controller : MonoBehaviour{
 
     // These for whatever reason have to be public
     public List<string> imageFileNames; // File that will be loaded into the buffer.
-    //private bool imagesWillBeUsed = false; // Boolen that encodes with images are used to control image related stuff. 
     public List<Sprite> imageSprites; // Buffer where all images are saved. 
 
     // Private vars
@@ -62,7 +61,6 @@ public class QP_controller : MonoBehaviour{
     private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
     private string alignmentString; // String that will decide which text alignment will be used. Info will be parsed from .json. 
     private TextAnchor alignment;  // TextAnchor controlling text alignment.
-    private bool blocksNeedShuffling = false; // Bool if any blocks need shuffling at all
     private List<int> blocks2shuffle; // Contains the blocks that need to be shuffled
 
     // Everything that has to be done at the beginning
@@ -143,6 +141,9 @@ public class QP_controller : MonoBehaviour{
         // Version of the task
         Debug.Log("Application Version : " + Application.version);
 
+        // Screen resolution
+        Debug.Log(Screen.currentResolution);
+
         // Remove version number
         versionNumber.text = "";
 
@@ -174,15 +175,8 @@ public class QP_controller : MonoBehaviour{
         tempKey = "shuffleBlocks";
         if(containsThisKeyInSessionSettings(tempKey)){
             blocks2shuffle = session.settings.GetIntList(tempKey); 
-            blocksNeedShuffling = true;
-        } else {
-            blocksNeedShuffling = false;
-        }
-
-        // Check if any shuffling is needed
-        if(blocksNeedShuffling){
             ShuffleBlocks(session);
-        }
+        } 
 
     	// Begin first trial
         session.BeginNextTrial(); 
@@ -422,7 +416,6 @@ public class QP_controller : MonoBehaviour{
         List<string> imageList = new List<string>();
         imageList.Add(optionsList[2]);
         imageList.Add(optionsList[3]);
-        Debug.Log(imageList[0]);
 
         // Load the images
         Image image1 = currentCanvas.transform.GetChild(5).gameObject.GetComponent<Image>();
@@ -730,6 +723,7 @@ public class QP_controller : MonoBehaviour{
         float startTimer = Time.realtimeSinceStartup;
         Debug.Log("Start loading " + numImages + " images.");
         for(int i = 0; i < numImages; i++){
+            Debug.Log("Loading" + imageFileNames[i]);
             imageSprites.Add(LoadNewSprite(imageFileNames[i]));
         }
         float loadTime = Time.realtimeSinceStartup - startTimer;
@@ -809,12 +803,14 @@ public class QP_controller : MonoBehaviour{
     }
 
     /// <summary>
-    /// Method to shuffle trials within a block as specified by .json file. Needs to be assigned lower down in On Session Begin
+    /// Method to shuffle trials within a block as specified by .json file. 
     /// </summary>  
     public void ShuffleBlocks(Session session){
         int num_blocks2shuffle = blocks2shuffle.Count;
         for(int i = 1; i <= num_blocks2shuffle; i++){
-            var currentBlock = session.GetBlock(i);
+            var currentBlock_index =  blocks2shuffle[i - 1];
+            Debug.Log("Shuffle block: " + currentBlock_index);
+            var currentBlock = session.GetBlock(currentBlock_index);
             currentBlock.trials.Shuffle();
         }
     }

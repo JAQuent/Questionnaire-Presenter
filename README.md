@@ -391,19 +391,16 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
 
 ![](README_files/figure-gfm/mouse_tracker-1.png)<!-- -->
 
-# Ideas for the future
+# Version and ideas for the future
 
--   Roadmap for version 2.0.0
-    -   Add resolution to the log
-    -   Add feature that images can be used to all appropriate question types
-    -   Changed length of slider a bit to give more room.
-    -   Check what input devices (mouse & touche are presented.). Check whether this works. 
-    -   Rename fileNames to image filenames for better clarity
-    -   Remove imagesWillBeUsed is not needed
-    -   Version controll added to start screen
+-   Version 2.0.0
+    -   Added feature that screen resolution is printed to the log. 
+    -   New question type added called `slider_2_images`, which can present two square images side by side with a question and the slider scale. 
+    -   Changed length of slider a bit to more varied responses.
+    -   Added that the version is displayed at the beginning in right bottom corner.
 
 -   Features planned some time in the future
-    -   A way to introduce a participant check list.
+    -   Add more image based version of other question types. 
     -   A way to further customise the visual appearance (e.g. change
         background on trials to highlight different questionnaires),  
     -   Currently, any extra columns in the input .csv file are not copied
@@ -414,6 +411,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
         questions etc. interferes with the `trial_results.csv`. For now, I
         therefore simply disabled this function and suggest to add this
         information at a later stage.
+        
 
 Feedback or help is always welcome!
 
