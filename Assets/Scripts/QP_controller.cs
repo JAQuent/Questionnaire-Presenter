@@ -777,9 +777,8 @@ public class QP_controller : MonoBehaviour{
     /// Check which input devices are available
     /// </summary>
     void detectInputDevices(){
-        Debug.Log("Mouse connected to computer: " + Input.mousePresent);
+        //Debug.Log("Mouse connected to computer: " + Input.mousePresent);
         Debug.Log("Computer supports touchscreen: " + Input.touchSupported);
-        Debug.Log("Number of touch devices: " + Input.touchCount);
         Debug.Log("Device type: " + SystemInfo.deviceType);
     }
 
