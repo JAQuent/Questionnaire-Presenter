@@ -395,10 +395,16 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
 
 -   Version 2.0.0
     -   Added feature that screen resolution is printed to the log. 
-    -   New question type added called `slider_2_images`, which can present two square images side by side with a question and the slider scale. 
+    -   New question type added called `slider_2_images`, which can present two square (250 px) images side by side with a question and the slider scale. 
     -   Changed length of slider a bit to more varied responses.
     -   Added that the version is displayed at the beginning in right bottom corner.
-
+-   Version 2.0.1
+    -   Changed anchor height of `slider_2_images` to allow two rows of text
+    
+    -   Added `message_1_image` type that allows to display a (450 x 300 px, 3:2 aspect ratio) image along with short text. 
+    
+    -   Fixed that confirm button label was not changed for `slider_2_images`. 
+    
 -   Features planned some time in the future
     -   Add more image based version of other question types. 
     -   A way to further customise the visual appearance (e.g. change
@@ -410,8 +416,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
         the fact that QP allows “,” to be used in the strings for the
         questions etc. interferes with the `trial_results.csv`. For now, I
         therefore simply disabled this function and suggest to add this
-        information at a later stage.
-        
+        information at a later stage. This can be done by specifying names of columns that should be saved. 
 
 Feedback or help is always welcome!
 

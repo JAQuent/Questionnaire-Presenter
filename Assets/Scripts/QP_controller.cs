@@ -23,6 +23,7 @@ public class QP_controller : MonoBehaviour{
 	// Public vars
     [Header("Question types")]
     public GameObject message;
+    public GameObject message_1_image;
     public GameObject slider;
     public GameObject slider_2_images;
     public GameObject dropdown;
@@ -214,7 +215,9 @@ public class QP_controller : MonoBehaviour{
 		// Select correct method
 		if(trialType == "message"){
 			SetUpTrial_message();
-		} else if(trialType == "slider"){
+		} else if(trialType == "message_1_image"){
+            SetUpTrial_message_1_image();
+        } else if(trialType == "slider"){
 			SetUpTrial_slider();
 		} else if(trialType == "slider_2_images"){
             SetUpTrial_slider_2_images();
@@ -233,7 +236,7 @@ public class QP_controller : MonoBehaviour{
 		} else if(trialType == "checkmark"){
 			SetUpTrial_checkmark();
 		} else {
-			Debug.Log("ERROR: [" + trialType + "] is not one of response types available. Please choose one of: message, slider, dropdown, textShort, textLong, numberInteger, numberDecimal, radio & checkmark");
+			Debug.Log("ERROR: [" + trialType + "] is not one of response types available. Please choose one of: message, message_1_image, slider, slider_2_images, dropdown, textShort, textLong, numberInteger, numberDecimal, radio & checkmark");
 		}
     }
 
@@ -355,6 +358,32 @@ public class QP_controller : MonoBehaviour{
 		question.text = questionText.Replace("\\n", "\n");
         question.alignment = alignment;
     }
+
+    /// <summary>
+    /// This sets up a message_1_image trial.
+    /// </summary>
+    void SetUpTrial_message_1_image(){
+        // Set current canvas so it can be deactivated later & activate
+        currentCanvas = message_1_image;
+        currentCanvas.SetActive(true);
+
+        // Set the question text
+        Text question = currentCanvas.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
+        question.text = ""; // Reset in case there is no question
+        question.text = questionText.Replace("\\n", "\n");
+        question.alignment = alignment;
+
+        // Get information from options
+        options = trial.settings.GetString("options");
+
+        // Load the image
+        Image image1 = currentCanvas.transform.GetChild(2).gameObject.GetComponent<Image>();
+
+        // Assign correct image
+        image1.sprite = imageSprites[getIndex(imageFileNames, options)];
+
+    }
+
 
     /// <summary>
     /// This sets up a slider trial.
@@ -704,7 +733,9 @@ public class QP_controller : MonoBehaviour{
     void changeConfirmButtonLabel(){
         // Change the button labels
         message.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        message_1_image.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
         slider.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
+        slider_2_images.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
         dropdown.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
         textShort.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
         textLong.transform.Find("confirmButtom").GetChild(0).gameObject.GetComponent<Text>().text = session.settings.GetString("confirmButtonLabel");
@@ -723,7 +754,7 @@ public class QP_controller : MonoBehaviour{
         float startTimer = Time.realtimeSinceStartup;
         Debug.Log("Start loading " + numImages + " images.");
         for(int i = 0; i < numImages; i++){
-            Debug.Log("Loading" + imageFileNames[i]);
+            Debug.Log("Loading " + imageFileNames[i]);
             imageSprites.Add(LoadNewSprite(imageFileNames[i]));
         }
         float loadTime = Time.realtimeSinceStartup - startTimer;

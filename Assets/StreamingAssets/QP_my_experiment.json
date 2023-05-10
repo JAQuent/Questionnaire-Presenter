@@ -9,6 +9,6 @@
  	"url": "http://bla/form",
  	"username": "bla",
  	"password": "bla",
- 	"imageFileNames": ["images/1.png", "images/2.png"],
+ 	"imageFileNames": ["images/1.png", "images/2.png", "images/3.png"],
  	"shuffleBlocks": [3]
 }
