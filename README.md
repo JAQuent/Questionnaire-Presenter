@@ -398,6 +398,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
     -   New question type added called `slider_2_images`, which can present two square (250 px) images side by side with a question and the slider scale. 
     -   Changed length of slider a bit to more varied responses.
     -   Added that the version is displayed at the beginning in right bottom corner.
+    -   With `shuffleBlocks` specified in .json it is possible to change the order of trials within blocks. 
 -   Version 2.0.1
     -   Changed anchor height of `slider_2_images` to allow two rows of text
     
@@ -416,7 +417,7 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
         the fact that QP allows “,” to be used in the strings for the
         questions etc. interferes with the `trial_results.csv`. For now, I
         therefore simply disabled this function and suggest to add this
-        information at a later stage. This can be done by specifying names of columns that should be saved. 
+        information at a later stage. This can be done by specifying names of columns that should be saved in the .json and than looping over them. 
 
 Feedback or help is always welcome!
 
