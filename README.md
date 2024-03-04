@@ -316,7 +316,7 @@ Note due to UXF’s API “,” in responses & input are converted into “\_”
 
 For the most part the way to analyse the response should be fairly
 obvious. The only tricky bit might be to analyse radio & checkmark
-questions. Here is short demonstration to do this.
+questions. Here is a short demonstration to do this:
 
 ``` r
 # How to analyse the response to a radio question
