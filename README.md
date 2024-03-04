@@ -15,15 +15,13 @@ that allows you to quickly & easily run questionnaires on a computer.
 The user does not need to have any programming experience or even have
 Unity3D install on the target machine. The questionnaire is constructed
 by providing a simple .txt file with tab-separated values, which can be
-created with spreadsheet program like Excel or LibreOffice. The
+created with a spreadsheet program like Excel or LibreOffice. The
 questionnaire then presents each question as a single item on a screen.
 As of now, multi-item presentations are not supported (If that is what
 you need, please check out
 [VRQuestionnaireToolkit](https://github.com/MartinFk/VRQuestionnaireToolkit)).
 Questionnaire Presenter was designed to be as lightweight and as simple
-as possible so I decided to restrict it to one question per page. This
-allows for a uniquely input system that is simple can be used to
-construct the questionnaire.
+as possible so I decided to restrict it to one question per page.
 
 Illustration how the application looks like:
 
@@ -31,164 +29,159 @@ Illustration how the application looks like:
 
 **Contents**
 
--   [General introduction](#General-introduction)
--   [Question types](#Question-types)
-    -   [Message](#Message)
-    -   [Slider](#Slider)
-    -   [Dropdown](#Dropdown)
-    -   [TextShort](#TextShort)
-    -   [TextLong](#TextLong)
-    -   [NumberInterger](#NumberInterger)
-    -   [NumberDecimal](#NumberDecimal)
-    -   [Radio](#Radio)
-    -   [Checkmark](#Checkmark)
--   [Example input files](#Example-input-files)
--   [Data saved](#Data-saved)
-    -   [Main results](#Main-results)
-    -   [Log](#log)
-    -   [Tracker](#Tracker)
--   [Ideas for the future](#Ideas-for-the-future)
--   [How to cite](#How-to-cite)
+- [General introduction](#General-introduction)
+- [Question types](#Question-types)
+  - [Message](#Message)
+  - [Slider](#Slider)
+  - [Dropdown](#Dropdown)
+  - [TextShort](#TextShort)
+  - [TextLong](#TextLong)
+  - [NumberInterger](#NumberInterger)
+  - [NumberDecimal](#NumberDecimal)
+  - [Radio](#Radio)
+  - [Checkmark](#Checkmark)
+- [Example input files](#Example-input-files)
+- [Data saved](#Data-saved)
+  - [Main results](#Main-results)
+  - [Log](#log)
+  - [Tracker](#Tracker)
+- [Ideas for the future](#Ideas-for-the-future)
+- [How to cite](#How-to-cite)
 
 # General introduction
 
 As explained above, you simply need to copy your .txt file with
-tab-separate values into the `StreamingAssets` folder of the the program
+tab-separate values into the `StreamingAssets` folder of the program
 (the exactly depends on whether you use the Window or the Mac version of
 Questionnaire Presenter). The .txt must contains the following columns
 (please note that the names of the columns need to match exactly
 including being case-sensitive).
 
--   `trialType`
--   `question`
--   `options`
--   `minimumDuration`
+- `trialType`
+- `question`
+- `options`
+- `minimumDuration`
 
-Optional but relevant for UXF (see UXF’s website for more details),
-which will determine the order in which the questions are presented:
+Optional columns but relevant for UXF (see UXF’s website for more
+details), which will determine the order in which the questions are
+presented:
 
--   `trial_num`
--   `block_num`
-
-All columns are included in the result file that is saved, which also
-includes any other columns that are provided but not needed to construct
-the questionnaire. For instance, one might want to include question IDs
-for simpler analysis. In the following, I quickly introduce the
-different question types, which are provide as the `trialType`.
+- `trial_num`
+- `block_num`
 
 # Question types
 
 ## Message
 
--   `trialType` = message
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = NA
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = message
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = NA
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: NA
 
 ## Slider
 
--   `trialType` = slider
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Left and right anchors are provided with a `|` in the
-    middle. For example: “agree\|disagree”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = slider
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Left and right anchors are provided with a `|` in the
+  middle. For example: “agree\|disagree”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: Value between 0 & 1.
 
 ## Dropdown
 
--   `trialType` = slider
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Dropdown options are provided with a `|` between each
-    item (unlimited number). For example: “yes\|no\|maybe”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = slider
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Dropdown options are provided with a `|` between each item
+  (unlimited number). For example: “yes\|no\|maybe”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: String of the chosen menu item.
 
 ## TextShort
 
--   `trialType` = textShort
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Place holder text. For example: “Enter your text here…”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = textShort
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Place holder text. For example: “Enter your text here…”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: String of typed response.
 
 ## TextLong
 
--   `trialType` = textLong
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Place holder text. For example: “Enter your text here…”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = textLong
+- `question` = String of your question.`\n` Can be used a line break
+  character.
+- `options` = Place holder text. For example: “Enter your text here…”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: String of typed response.
 
 ## NumberInteger
 
--   `trialType` = numberInteger
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Place holder text. For example: “Enter the number here…”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = numberInteger
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Place holder text. For example: “Enter the number here…”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: The integer that was typed in.
 
 ## NumberDecimal
 
--   `trialType` = numberDecimal
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Place holder text. For example: “Enter the number here…”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = numberDecimal
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Place holder text. For example: “Enter the number here…”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: The decimal number that was typed in.
 
 ## Radio
 
--   `trialType` = radio
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Radio options are provided with a `|` between each item
-    (limit is 7 options, minimum is 3). For example:
-    “agree\|\|disagree”. `\n` can be used for these.
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = radio
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Radio options are provided with a `|` between each item
+  (limit is 7 options, minimum is 3). For example: “agree\|\|disagree”.
+  `\n` can be used for these.
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: The ordinal number (from left to right) of the chosen
 option.
 
 ## Checkmark
 
--   `trialType` = checkmark
--   `question` = string included your message. `\n` Can be used a line
-    break character.
--   `options` = Checkmark options are provided with a `|` between each
-    item (limit is 9 options). For example: “windows\|mac\|unix/linux”
--   `minimumDuration` = Minimum duration in seconds you want your
-    participants to spend on this item before they can continue. Default
-    is always zero seconds.
+- `trialType` = checkmark
+- `question` = String of your question. `\n` Can be used a line break
+  character.
+- `options` = Checkmark options are provided with a `|` between each
+  item (limit is 9 options). For example: “windows\|mac\|unix/linux”
+- `minimumDuration` = Minimum duration in seconds you want your
+  participants to spend on this item before they can continue. Default
+  is always zero seconds.
 
 **Return**: True & False separated by `|` matching with the options.
 
@@ -247,8 +240,8 @@ recognised by UXF.
 
 ## Customisation of the UXF Startup panel using a .json file
 
-The UXF Startup panel can be customised by changing values in this the
-.json file called `startupText.json` that is also found the
+The UXF Startup panel can be customised by changing values in the .json
+file called `startupText.json`, which is also found the
 `StreamingAssets` folder and looks like this:
 
 ``` json
@@ -267,14 +260,14 @@ The UXF Startup panel can be customised by changing values in this the
 }
 ```
 
-All that needs to be done is to edit the strings in this file to display
+All that needs to be done is to edit the fields in this file to display
 your information instead of the standard text.
 
 # Data saved
 
 ## Main results
 
-Here is quick guide what data is saved by Questionnaire Presenter. For
+Here is a quick guide what data is saved by Questionnaire Presenter. For
 more information please also check [Unity Experiment
 Framework](https://github.com/immersivecognition/unity-experiment-framework)\]
 but the main result can be found in `trail_results.csv`. Here is the
@@ -306,17 +299,17 @@ kable(data)
 Here is what the most important columns that are unique to this
 application mean:
 
--   *ppid* = The participant ID.
--   *trailType* = Question type used in this trial.  
--   *question* = The question that was used in this trial.
--   *value* = The response given by the participant. Please look above
-    for the different value types.
+- *ppid* = The participant ID.
+- *trailType* = Question type used in this trial.  
+- *question* = The question that was used in this trial.
+- *value* = The response given by the participant. Please look above for
+  the different value types.
 
 Note due to UXF’s API “,” in responses & input are converted into “\_”.
 
-For the most part the way to analyse the response should be fairly
+For the most part, the way to analyse the response should be fairly
 obvious. The only tricky bit might be to analyse radio & checkmark
-questions. Here is a short demonstration to do this:
+questions. Here is short a demonstration to do this:
 
 ``` r
 # How to analyse the response to a radio question
@@ -346,9 +339,9 @@ it provides information but which platform is used (Windows/Mac), at
 which system time the experiment started and which version was used.
 Here is an example:
 
--   10.53183,Log,Session start time 10/10/2022 4:49:43 PM,
--   10.53183,Log,Application Version : 1.0.0,
--   10.53183,Log,Platform used is UNITY_STANDALONE_WIN,
+- 10.53183,Log,Session start time 10/10/2022 4:49:43 PM,
+- 10.53183,Log,Application Version : 1.0.0,
+- 10.53183,Log,Platform used is UNITY_STANDALONE_WIN,
 
 ## Tracker
 
@@ -391,33 +384,20 @@ ggplot(questions_mouseTracker,aes(norm_pix_x, norm_pix_y)) +
 
 ![](README_files/figure-gfm/mouse_tracker-1.png)<!-- -->
 
-# Version and ideas for the future
+# Ideas for the future
 
--   Version 2.0.0
-    -   Added feature that screen resolution is printed to the log. 
-    -   New question type added called `slider_2_images`, which can present two square (250 px) images side by side with a question and the slider scale. 
-    -   Changed length of slider a bit to more varied responses.
-    -   Added that the version is displayed at the beginning in right bottom corner.
-    -   With `shuffleBlocks` specified in .json it is possible to change the order of trials within blocks. 
--   Version 2.0.1
-    -   Changed anchor height of `slider_2_images` to allow two rows of text
-    
-    -   Added `message_1_image` type that allows to display a (450 x 300 px, 3:2 aspect ratio) image along with short text. 
-    
-    -   Fixed that confirm button label was not changed for `slider_2_images`. 
-    
--   Features planned some time in the future
-    -   Add more image based version of other question types. 
-    -   A way to further customise the visual appearance (e.g. change
-        background on trials to highlight different questionnaires),  
-    -   Currently, any extra columns in the input .csv file are not copied
-        to the data making adding supplementary information to the data a
-        bit more cumbersome. Even though it would be a useful feature
-        because one could question IDs and many other things, the issue is
-        the fact that QP allows “,” to be used in the strings for the
-        questions etc. interferes with the `trial_results.csv`. For now, I
-        therefore simply disabled this function and suggest to add this
-        information at a later stage. This can be done by specifying names of columns that should be saved in the .json and than looping over them. 
+- A way to introduce a participant check list.
+- A way to further customise the visual appearance (e.g. change
+  background on trials to highlight different questionnaires),  
+- Currently, any extra columns in the input .csv file are not copied to
+  the data making adding supplementary information to the data a bit
+  more cumbersome. Even though it would be a useful feature because one
+  could question IDs and many other things, the issue is the fact that
+  QP allows “,” to be used in the strings for the questions etc.
+  interferes with the `trial_results.csv`. For now, I therefore simply
+  disabled this function and suggest to add this information at a later
+  stage.
+- Add resolution to the log.
 
 Feedback or help is always welcome!
 
